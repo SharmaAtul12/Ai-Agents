@@ -1,0 +1,26 @@
+{
+  "name": "ai_agents",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/SharmaAtul12/Ai-Agents#readme",
+  "bugs": {
+    "url": "https://github.com/SharmaAtul12/Ai-Agents/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SharmaAtul12/Ai-Agents.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@openai/agents": "^0.6.0",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "zod": "^4.3.6"
+  }
+}
