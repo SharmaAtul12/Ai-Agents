@@ -3,6 +3,13 @@ import 'dotenv/config';
 import {z} from 'zod';
 import axios from 'axios';
 
+// Defining the Structure for Output
+const GetWeatherResultSchema = z.object({
+  city : z.string().describe('name of the city'),
+  degree_c: z.number().describe('temperature in degree celsius'),
+  condition: z.string().optional().describe('condition of the weather') 
+})
+
 const getWeatherTool = tool({
   name: 'get_weather',
   description: 'returns the current weather information for a given city',
@@ -22,7 +29,8 @@ const agent = new Agent({
   name: "Weather Agent",
   model: "gpt-5-mini-2025-08-07",
   instructions: "You are a expert weather agent that helps user to tell weather report",
-  tools: [getWeatherTool]
+  tools: [getWeatherTool],
+  outputType: GetWeatherResultSchema
 })
 
 async function main(query = '') {
@@ -30,4 +38,4 @@ async function main(query = '') {
   console.log(`Result : `, result.finalOutput);
 }
 
-main("What is the weather in Patiala , Delhi and Mumbai ?")
+main("What is the weather in Delhi ?")
