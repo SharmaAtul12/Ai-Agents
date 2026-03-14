@@ -24,7 +24,7 @@ const processRefund = tool({
     reason: z.string().describe('reason for  refund'),
   }),
   execute : async function ({customerId, reason}) {
-    await fs.appendFile('./refunds.txt', `Refund Processed for Customer : ${customerId} with reason : ${reason}`, 'utf-8');
+    await fs.appendFile('./refunds.txt', `Refund Processed for Customer : ${customerId} with reason : ${reason}\n`, 'utf-8');
     return {refundIssued: true}
   }
 })
