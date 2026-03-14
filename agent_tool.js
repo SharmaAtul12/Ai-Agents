@@ -3,7 +3,7 @@ import 'dotenv/config';
 import {z} from 'zod';
 import axios from 'axios';
 
-// Defining the Structure for Output
+// Defining the Structure for Output to tell LLM about the output format and also for validation of the output
 const GetWeatherResultSchema = z.object({
   city : z.string().describe('name of the city'),
   degree_c: z.number().describe('temperature in degree celsius'),
