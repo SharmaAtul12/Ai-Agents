@@ -15,6 +15,7 @@ const agent = new Agent({
 /*
 async function main(query: string) {
   const result = await run(agent, query, {stream: true});
+  // This converts the result into an Async Iterable stream.
   const stream = result.toTextStream();
   
   for await (const val of stream) {
@@ -28,21 +29,23 @@ async function main(query: string) {
 /*
 async function main(query: string) {
   const result = await run(agent, query, {stream: true});
+  // “Convert AI response into a Node.js stream and directly print it to terminal in real-time.”
+  // So we don't need to use an async iterator, we can directly pipe the stream to process.stdout.
   result.toTextStream({compatibleWithNodeStreams: true}).pipe(process.stdout);
 }
 */
 
-// --------------------------------- Way 3: Using JS Generator  ---------------------------------
+// ------------- Way 3: Using JS Generator So that to send structured output  ---------------------------------
 
 async function* streamOutput(query: string) {
   const result = await run(agent, query, {stream: true});
   const stream = result.toTextStream();
 
   for await (const val of stream) {
-    yield {isCompleted: false, value: val};
+    yield {isCompleted: false, value: val}; // Yielding structured output with a flag to indicate if the stream is completed or not.
   }
 
-  yield {isCompleted: true, value: result.finalOutput};
+  yield {isCompleted: true, value: result.finalOutput}; // Once the stream is completed, we yield the final output with a flag to indicate completion.
 }
 
 async function main(query: string) {
