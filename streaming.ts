@@ -12,7 +12,7 @@ const agent = new Agent({
 
 // --------------------------------- Way 1: Using async iterators ---------------------------------
 
-/*
+
 async function main(query: string) {
   const result = await run(agent, query, {stream: true});
   // This converts the result into an Async Iterable stream.
@@ -22,7 +22,8 @@ async function main(query: string) {
     console.log(val);
   }
 }
-*/
+
+
 
 // --------------------------------- Way 2: Using Node.js streams ---------------------------------
 
@@ -37,6 +38,7 @@ async function main(query: string) {
 
 // ------------- Way 3: Using JS Generator So that to send structured output  ---------------------------------
 
+/*
 async function* streamOutput(query: string) {
   const result = await run(agent, query, {stream: true});
   const stream = result.toTextStream();
@@ -53,6 +55,7 @@ async function main(query: string) {
     console.log(o);
   }
 }
+*/
 
 
 main('Tell me a story of 100 words about a dragon and a princess.');
