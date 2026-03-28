@@ -7,6 +7,7 @@ import readline from 'node:readline/promises';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Tool for getting the weather information of a city, it doesn't need approval before executing the tool
 const getWeatherTool = tool({
   name: 'get_weather',
   description: 'returns the current weather information for a given city',
@@ -21,6 +22,7 @@ const getWeatherTool = tool({
   }
 }) 
 
+// Tool for sending email to the user with the weather information, it needs approval before executing the tool
 const sendEmailTool = tool({
   name: 'send_email',
   description: 'send the email to the user with the weather information',
@@ -49,6 +51,7 @@ const agent = new Agent({
   tools: [getWeatherTool, sendEmailTool]
 })
 
+// Function to ask user for permission to execute a tool when an interruption occurs
 async function askForUserPermission(ques: string) {
    const rl = readline.createInterface({
     input: process.stdin,
