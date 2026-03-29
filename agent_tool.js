@@ -13,6 +13,7 @@ const GetWeatherResultSchema = z.object({
 const getWeatherTool = tool({
   name: 'get_weather',
   description: 'returns the current weather information for a given city',
+  // LLM will use this information to know what parameters to pass when calling the tool and also for validation of the parameters
   parameters: z.object({
     city: z.string().describe('name of the city')
   }),
@@ -20,7 +21,7 @@ const getWeatherTool = tool({
     console.log(`⛏️ Tool Executing : get_weather with city : ${city}`);
     const url = `https://wttr.in/${city.toLowerCase()}?format=%C+%t`
     const response = await axios.get(url, {responseType: 'text'});
-    return `The Weather in ${city} is ${response.data}`;
+    return `The Weather in ${city} is ${response.data}`; // This is the raw output which will be passed to LLM . LLM will then parse this output and convert it into the structured output as defined in GetWeatherResultSchema
   }
   
 })
