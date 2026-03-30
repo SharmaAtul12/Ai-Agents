@@ -3,6 +3,7 @@ import {Agent,tool, run} from '@openai/agents';
 import {z} from 'zod';
 import fs from 'node:fs/promises'
 
+// Tool to fetch available plans for internet
 const fetchAvailablePlans = tool({
   name: 'fetch_available_plans',
   description: 'Fetches the available plans for internet',
@@ -16,6 +17,7 @@ const fetchAvailablePlans = tool({
   }
 })
 
+// Tool to process refund for a customer
 const processRefund = tool({
   name: 'process_refund',
   description: `This tool processes the refund for a customer`,
