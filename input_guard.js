@@ -18,6 +18,7 @@ const mathInputAgent = new Agent({
   })
 })
 
+// The input guardrail that uses the above agent to check the user query before reaching the main maths agent
 const mathInputGuardrail = {
   name: 'Math Homework Guardrail',
   execute: async ({input}) => { // This Input is the user query , It first pass through the guardrail before reaching the agent 
