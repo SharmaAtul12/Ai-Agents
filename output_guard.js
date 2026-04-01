@@ -16,6 +16,7 @@ const sqlGuardrailAgent = new Agent({
   })
 });
 
+// Guardrail to check if the SQL query is safe to execute
 const sqlGuardrail = {
   name : 'SQL Guardrail',
   execute : async ({agentOutput}) => {
