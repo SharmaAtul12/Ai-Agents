@@ -30,6 +30,7 @@ const mathInputGuardrail = {
   }
 }
 
+// This is the main maths agent that will solve the maths question if it is valid , otherwise the input guardrail will reject the query and the agent will not execute
 const mathsAgent = new Agent({
   name: 'Maths Agent',
   model: 'gpt-5-mini-2025-08-07',
