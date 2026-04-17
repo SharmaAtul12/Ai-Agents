@@ -15,6 +15,7 @@ import {Agent, run} from '@openai/agents';
 // Instruction Can Also be Function 
 const location = 'USA';
 
+// Here the instruction is a function that checks the location and returns different instructions based on the location. If the location is India, it will return an instruction to say hello world in Hinglish, otherwise it will return a generic instruction to just talk to the user.
 const helloAgentWithFunction = new Agent({
   name: 'Hello Agent With Function',
   model: 'gpt-5-mini-2025-08-07',
