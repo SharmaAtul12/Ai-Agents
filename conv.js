@@ -16,7 +16,7 @@ const executeSQL = tool({
   }
 })
 
-
+// this is the agent which will generate the SQL query as per user request and then execute it using the tool defined above
 const sqlAgent = new Agent({
   name : 'SQL ExpertAgent',
   model : 'gpt-5-mini-2025-08-07',
