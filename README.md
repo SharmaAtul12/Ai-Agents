@@ -44,7 +44,4 @@ node index.js
 - See `notes/` for miscellaneous documentation used during development.
 - This repo is intentionally small and focused; adapt scripts to your environment.
 
-## License
-
-MIT — see LICENSE file if present.
 
