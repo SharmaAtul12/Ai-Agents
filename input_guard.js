@@ -38,6 +38,7 @@ const mathsAgent = new Agent({
   inputGuardrails: [mathInputGuardrail]
 })
 
+// Main function to run the agent with a user query
 async function main(query = '') {
   try {
     const result = await run(mathsAgent, query);
