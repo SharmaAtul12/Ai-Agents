@@ -23,6 +23,7 @@ const processRefund = tool({
   },
 });
 
+// The Refund Agent is designed to handle refund requests. It uses the processRefund tool to execute refunds based on the provided customerId and reason. The agent follows strict rules to ensure that refunds are processed correctly and that it only asks for necessary information when required.
 const refundAgent = new Agent({
   name: "Refund Agent",
   model: "gpt-5-mini-2025-08-07",
